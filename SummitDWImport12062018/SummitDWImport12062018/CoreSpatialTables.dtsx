@@ -1,0 +1,1578 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/2/2018 11:15:57 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="CEPLT23408V"
+  DTS:CreatorName="SCCGOV\Joseph.Simon"
+  DTS:DTSID="{FA0C866C-3D57-4EA8-AA70-8D6354B696D1}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.0900.40"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="CoreSpatialTables"
+  DTS:PackageType="5"
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{94B21C96-DB12-43B2-B8BE-335629A6D63C}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\CoreGeometries"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{23AAE4DE-F21E-4106-963D-10F31DDEBF17}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CoreGeometries">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="dwMostRecentUpdatedGeometries"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[dimMostRecentUpdatedGeom]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Connections[OleDbConnection]"
+                  connectionManagerID="{964D0A0C-2F9F-41D7-9A2F-6327305B1CD2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[cepsvdb02.DW_Summit]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].Columns[RAGEOMID]"
+                      cachedDataType="i4"
+                      cachedName="RAGEOMID"
+                      externalMetadataColumnId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].ExternalColumns[RAGEOMID]"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[RAGEOMID]" />
+                    <inputColumn
+                      refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].Columns[rageGeometryID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="rageGeometryID"
+                      externalMetadataColumnId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].ExternalColumns[rageGeometryID]"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[rageGeometryID]" />
+                    <inputColumn
+                      refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].Columns[rageAssetID]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="rageAssetID"
+                      externalMetadataColumnId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].ExternalColumns[rageAssetID]"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[rageAssetID]" />
+                    <inputColumn
+                      refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].Columns[GEOG_WKT]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="GEOG_WKT"
+                      externalMetadataColumnId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].ExternalColumns[GEOG_WKT]"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[GEOG_WKT]" />
+                    <inputColumn
+                      refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].Columns[RageFeatureTypeConstant]"
+                      cachedDataType="i4"
+                      cachedName="RageFeatureTypeConstant"
+                      externalMetadataColumnId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].ExternalColumns[RageFeatureTypeConstant]"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[RageFeatureTypeConstant]" />
+                    <inputColumn
+                      refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].Columns[ASSET_TYPE]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ASSET_TYPE"
+                      externalMetadataColumnId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].ExternalColumns[ASSET_TYPE]"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[ASSET_TYPE]" />
+                    <inputColumn
+                      refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].Columns[SURVEY_TABLE]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="SURVEY_TABLE"
+                      externalMetadataColumnId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].ExternalColumns[SURVEY_TABLE]"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[SURVEY_TABLE]" />
+                    <inputColumn
+                      refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].Columns[rageStatus]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="rageStatus"
+                      externalMetadataColumnId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].ExternalColumns[rageStatus]"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[rageStatus]" />
+                    <inputColumn
+                      refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].Columns[dAudit]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="dAudit"
+                      externalMetadataColumnId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].ExternalColumns[dAudit]"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[dAudit]" />
+                    <inputColumn
+                      refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].Columns[Style_Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Style_Name"
+                      externalMetadataColumnId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].ExternalColumns[Style_Name]"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[Style_Name]" />
+                    <inputColumn
+                      refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].Columns[dAuditUTC]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="dAuditUTC"
+                      externalMetadataColumnId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].ExternalColumns[dAuditUTC]"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[dAuditUTC]" />
+                    <inputColumn
+                      refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].Columns[rowguid]"
+                      cachedDataType="guid"
+                      cachedName="rowguid"
+                      externalMetadataColumnId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].ExternalColumns[rowguid]"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[rowguid]" />
+                    <inputColumn
+                      refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].Columns[ogr_geometry]"
+                      cachedDataType="image"
+                      cachedName="ogr_geometry"
+                      externalMetadataColumnId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].ExternalColumns[ogr_geometry]"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[ogr_geometry]" />
+                    <inputColumn
+                      refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].Columns[RandomGeomPoint]"
+                      cachedDataType="image"
+                      cachedName="RandomGeomPoint"
+                      externalMetadataColumnId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].ExternalColumns[RandomGeomPoint]"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[RandomGeomPoint]" />
+                    <inputColumn
+                      refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].Columns[INSPECTDATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="INSPECTDATE"
+                      externalMetadataColumnId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].ExternalColumns[INSPECTDATE]"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[INSPECTDATE]" />
+                    <inputColumn
+                      refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].Columns[mrugAssetID]"
+                      cachedDataType="i4"
+                      cachedName="mrugAssetID"
+                      externalMetadataColumnId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].ExternalColumns[ItemID]"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[mrugAssetID]" />
+                    <inputColumn
+                      refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].Columns[XCoord]"
+                      cachedDataType="r8"
+                      cachedName="XCoord"
+                      externalMetadataColumnId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].ExternalColumns[Latitude]"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[XCoord]" />
+                    <inputColumn
+                      refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].Columns[YCoord]"
+                      cachedDataType="r8"
+                      cachedName="YCoord"
+                      externalMetadataColumnId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].ExternalColumns[Longitude]"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[YCoord]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].ExternalColumns[RAGEOMID]"
+                      dataType="i4"
+                      name="RAGEOMID" />
+                    <externalMetadataColumn
+                      refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].ExternalColumns[rageGeometryID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="rageGeometryID" />
+                    <externalMetadataColumn
+                      refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].ExternalColumns[rageAssetID]"
+                      dataType="wstr"
+                      length="20"
+                      name="rageAssetID" />
+                    <externalMetadataColumn
+                      refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].ExternalColumns[GEOG_WKT]"
+                      codePage="1252"
+                      dataType="text"
+                      name="GEOG_WKT" />
+                    <externalMetadataColumn
+                      refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].ExternalColumns[RageFeatureTypeConstant]"
+                      dataType="i4"
+                      name="RageFeatureTypeConstant" />
+                    <externalMetadataColumn
+                      refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].ExternalColumns[INSPECTDATE]"
+                      dataType="dbTimeStamp"
+                      name="INSPECTDATE" />
+                    <externalMetadataColumn
+                      refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].ExternalColumns[ASSET_TYPE]"
+                      dataType="wstr"
+                      length="50"
+                      name="ASSET_TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].ExternalColumns[SURVEY_TABLE]"
+                      dataType="wstr"
+                      length="50"
+                      name="SURVEY_TABLE" />
+                    <externalMetadataColumn
+                      refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].ExternalColumns[rageStatus]"
+                      dataType="wstr"
+                      length="20"
+                      name="rageStatus" />
+                    <externalMetadataColumn
+                      refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].ExternalColumns[dAudit]"
+                      dataType="dbTimeStamp"
+                      name="dAudit" />
+                    <externalMetadataColumn
+                      refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].ExternalColumns[Style_Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Style_Name" />
+                    <externalMetadataColumn
+                      refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].ExternalColumns[dAuditUTC]"
+                      dataType="dbTimeStamp"
+                      name="dAuditUTC" />
+                    <externalMetadataColumn
+                      refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].ExternalColumns[rowguid]"
+                      dataType="guid"
+                      name="rowguid" />
+                    <externalMetadataColumn
+                      refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].ExternalColumns[ogr_geometry]"
+                      dataType="image"
+                      name="ogr_geometry" />
+                    <externalMetadataColumn
+                      refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].ExternalColumns[RandomGeomPoint]"
+                      dataType="image"
+                      name="RandomGeomPoint" />
+                    <externalMetadataColumn
+                      refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].ExternalColumns[Latitude]"
+                      dataType="r8"
+                      name="Latitude" />
+                    <externalMetadataColumn
+                      refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].ExternalColumns[Longitude]"
+                      dataType="r8"
+                      name="Longitude" />
+                    <externalMetadataColumn
+                      refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input].ExternalColumns[ItemID]"
+                      dataType="i4"
+                      name="ItemID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\CoreGeometries\summMostRecentUpdatedGeometries"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="summMostRecentUpdatedGeometries"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[vcd_tbl_MostRecentGeometries]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">With cte as
+(
+SELECT  [RAGEOMID]
+      ,[rageGeometryID]
+      ,[rageAssetID]
+      ,[mrugAssetID]
+      ,[GEOG_WKT]
+      ,[RageFeatureTypeConstant]
+      ,[INSPECTDATE]
+      ,[ASSET_TYPE]
+      ,[SURVEY_TABLE]
+      ,[rageStatus]
+      ,[dAudit]
+      ,[Style_Name]
+      ,[dAuditUTC]
+      ,[dCreated]
+      ,[dCreatedUTC]
+      ,[rowguid]
+      ,[ogr_geometry]
+      ,[RandomGeomPoint]
+  FROM [Summit_Production_Report].[dbo].[vcd_tbl_MostRecentGeometries]
+  )
+  Select * from cte
+  Cross Apply [dbo].[vcd_udf_ReturnRandomPointXAndY](cte.RandomGeomPoint)</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Connections[OleDbConnection]"
+                  connectionManagerID="{D7C77584-B834-4CA6-9BB0-E58421899C9F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[dehsvdb01.Summit_Production_Report]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[RAGEOMID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[RAGEOMID]"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[RAGEOMID]"
+                      name="RAGEOMID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[rageGeometryID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[rageGeometryID]"
+                      length="50"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[rageGeometryID]"
+                      name="rageGeometryID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[rageAssetID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[rageAssetID]"
+                      length="20"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[rageAssetID]"
+                      name="rageAssetID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[mrugAssetID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[mrugAssetID]"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[mrugAssetID]"
+                      name="mrugAssetID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[GEOG_WKT]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[GEOG_WKT]"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[GEOG_WKT]"
+                      name="GEOG_WKT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[RageFeatureTypeConstant]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[RageFeatureTypeConstant]"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[RageFeatureTypeConstant]"
+                      name="RageFeatureTypeConstant"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[ASSET_TYPE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[ASSET_TYPE]"
+                      length="50"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[ASSET_TYPE]"
+                      name="ASSET_TYPE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[SURVEY_TABLE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[SURVEY_TABLE]"
+                      length="50"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[SURVEY_TABLE]"
+                      name="SURVEY_TABLE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[rageStatus]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[rageStatus]"
+                      length="20"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[rageStatus]"
+                      name="rageStatus"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[dAudit]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[dAudit]"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[dAudit]"
+                      name="dAudit"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[Style_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[Style_Name]"
+                      length="255"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[Style_Name]"
+                      name="Style_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[dAuditUTC]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[dAuditUTC]"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[dAuditUTC]"
+                      name="dAuditUTC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[dCreated]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[dCreated]"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[dCreated]"
+                      name="dCreated"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[dCreatedUTC]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[dCreatedUTC]"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[dCreatedUTC]"
+                      name="dCreatedUTC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[rowguid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[rowguid]"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[rowguid]"
+                      name="rowguid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[ogr_geometry]"
+                      dataType="image"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[ogr_geometry]"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[ogr_geometry]"
+                      name="ogr_geometry"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[RandomGeomPoint]"
+                      dataType="image"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[RandomGeomPoint]"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[RandomGeomPoint]"
+                      name="RandomGeomPoint"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[INSPECTDATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[INSPECTDATE]"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[INSPECTDATE]"
+                      name="INSPECTDATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[YCoord]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[YCoord]"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[YCoord]"
+                      name="YCoord"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[XCoord]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[XCoord]"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].Columns[XCoord]"
+                      name="XCoord"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[RAGEOMID]"
+                      dataType="i4"
+                      name="RAGEOMID" />
+                    <externalMetadataColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[rageGeometryID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="rageGeometryID" />
+                    <externalMetadataColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[rageAssetID]"
+                      dataType="wstr"
+                      length="20"
+                      name="rageAssetID" />
+                    <externalMetadataColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[mrugAssetID]"
+                      dataType="i4"
+                      name="mrugAssetID" />
+                    <externalMetadataColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[GEOG_WKT]"
+                      codePage="1252"
+                      dataType="text"
+                      name="GEOG_WKT" />
+                    <externalMetadataColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[RageFeatureTypeConstant]"
+                      dataType="i4"
+                      name="RageFeatureTypeConstant" />
+                    <externalMetadataColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[INSPECTDATE]"
+                      dataType="dbTimeStamp"
+                      name="INSPECTDATE" />
+                    <externalMetadataColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[ASSET_TYPE]"
+                      dataType="wstr"
+                      length="50"
+                      name="ASSET_TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[SURVEY_TABLE]"
+                      dataType="wstr"
+                      length="50"
+                      name="SURVEY_TABLE" />
+                    <externalMetadataColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[rageStatus]"
+                      dataType="wstr"
+                      length="20"
+                      name="rageStatus" />
+                    <externalMetadataColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[dAudit]"
+                      dataType="dbTimeStamp"
+                      name="dAudit" />
+                    <externalMetadataColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[Style_Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Style_Name" />
+                    <externalMetadataColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[dAuditUTC]"
+                      dataType="dbTimeStamp"
+                      name="dAuditUTC" />
+                    <externalMetadataColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[dCreated]"
+                      dataType="dbTimeStamp"
+                      name="dCreated" />
+                    <externalMetadataColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[dCreatedUTC]"
+                      dataType="dbTimeStamp"
+                      name="dCreatedUTC" />
+                    <externalMetadataColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[rowguid]"
+                      dataType="guid"
+                      name="rowguid" />
+                    <externalMetadataColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[ogr_geometry]"
+                      dataType="image"
+                      name="ogr_geometry" />
+                    <externalMetadataColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[RandomGeomPoint]"
+                      dataType="image"
+                      name="RandomGeomPoint" />
+                    <externalMetadataColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[YCoord]"
+                      dataType="r8"
+                      name="YCoord" />
+                    <externalMetadataColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output].ExternalColumns[XCoord]"
+                      dataType="r8"
+                      name="XCoord" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[RAGEOMID]"
+                      dataType="i4"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[RAGEOMID]"
+                      name="RAGEOMID" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[rageGeometryID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[rageGeometryID]"
+                      name="rageGeometryID" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[rageAssetID]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[rageAssetID]"
+                      name="rageAssetID" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[mrugAssetID]"
+                      dataType="i4"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[mrugAssetID]"
+                      name="mrugAssetID" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[GEOG_WKT]"
+                      codePage="1252"
+                      dataType="text"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[GEOG_WKT]"
+                      name="GEOG_WKT" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[RageFeatureTypeConstant]"
+                      dataType="i4"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[RageFeatureTypeConstant]"
+                      name="RageFeatureTypeConstant" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[ASSET_TYPE]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[ASSET_TYPE]"
+                      name="ASSET_TYPE" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[SURVEY_TABLE]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[SURVEY_TABLE]"
+                      name="SURVEY_TABLE" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[rageStatus]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[rageStatus]"
+                      name="rageStatus" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[dAudit]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[dAudit]"
+                      name="dAudit" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[Style_Name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[Style_Name]"
+                      name="Style_Name" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[dAuditUTC]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[dAuditUTC]"
+                      name="dAuditUTC" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[dCreated]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[dCreated]"
+                      name="dCreated" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[dCreatedUTC]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[dCreatedUTC]"
+                      name="dCreatedUTC" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[rowguid]"
+                      dataType="guid"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[rowguid]"
+                      name="rowguid" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[ogr_geometry]"
+                      dataType="image"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[ogr_geometry]"
+                      name="ogr_geometry" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[RandomGeomPoint]"
+                      dataType="image"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[RandomGeomPoint]"
+                      name="RandomGeomPoint" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[YCoord]"
+                      dataType="r8"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[YCoord]"
+                      name="YCoord" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[XCoord]"
+                      dataType="r8"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[XCoord]"
+                      name="XCoord" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[INSPECTDATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Error Output].Columns[INSPECTDATE]"
+                      name="INSPECTDATE" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\CoreGeometries.Paths[OLE DB Source Output]"
+              endId="Package\CoreGeometries\dwMostRecentUpdatedGeometries.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\CoreGeometries\summMostRecentUpdatedGeometries.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\FilteredBadGeometries"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{420768FE-48F5-4341-A041-4BEF12D24285}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FilteredBadGeometries"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\FilteredBadGeometries\dwFilteredGeometry"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="dwFilteredGeometry"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[dimMostRecentGeometryFiltered]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FilteredBadGeometries\dwFilteredGeometry.Connections[OleDbConnection]"
+                  connectionManagerID="{964D0A0C-2F9F-41D7-9A2F-6327305B1CD2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[cepsvdb02.DW_Summit]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FilteredBadGeometries\dwFilteredGeometry.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FilteredBadGeometries\dwFilteredGeometry.Inputs[OLE DB Destination Input].Columns[RAGEOMID]"
+                      cachedDataType="i4"
+                      cachedName="RAGEOMID"
+                      externalMetadataColumnId="Package\FilteredBadGeometries\dwFilteredGeometry.Inputs[OLE DB Destination Input].ExternalColumns[RAGEOMID]"
+                      lineageId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].Columns[RAGEOMID]" />
+                    <inputColumn
+                      refId="Package\FilteredBadGeometries\dwFilteredGeometry.Inputs[OLE DB Destination Input].Columns[GeometryID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="GeometryID"
+                      externalMetadataColumnId="Package\FilteredBadGeometries\dwFilteredGeometry.Inputs[OLE DB Destination Input].ExternalColumns[GeometryID]"
+                      lineageId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].Columns[GeometryID]" />
+                    <inputColumn
+                      refId="Package\FilteredBadGeometries\dwFilteredGeometry.Inputs[OLE DB Destination Input].Columns[ItemID]"
+                      cachedDataType="i4"
+                      cachedName="ItemID"
+                      externalMetadataColumnId="Package\FilteredBadGeometries\dwFilteredGeometry.Inputs[OLE DB Destination Input].ExternalColumns[ItemID]"
+                      lineageId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].Columns[ItemID]" />
+                    <inputColumn
+                      refId="Package\FilteredBadGeometries\dwFilteredGeometry.Inputs[OLE DB Destination Input].Columns[GeogWKT]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="GeogWKT"
+                      externalMetadataColumnId="Package\FilteredBadGeometries\dwFilteredGeometry.Inputs[OLE DB Destination Input].ExternalColumns[GeogWKT]"
+                      lineageId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].Columns[GeogWKT]" />
+                    <inputColumn
+                      refId="Package\FilteredBadGeometries\dwFilteredGeometry.Inputs[OLE DB Destination Input].Columns[FeatureTypeConstant]"
+                      cachedDataType="i4"
+                      cachedName="FeatureTypeConstant"
+                      externalMetadataColumnId="Package\FilteredBadGeometries\dwFilteredGeometry.Inputs[OLE DB Destination Input].ExternalColumns[FeatureTypeConstant]"
+                      lineageId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].Columns[FeatureTypeConstant]" />
+                    <inputColumn
+                      refId="Package\FilteredBadGeometries\dwFilteredGeometry.Inputs[OLE DB Destination Input].Columns[ItemType]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ItemType"
+                      externalMetadataColumnId="Package\FilteredBadGeometries\dwFilteredGeometry.Inputs[OLE DB Destination Input].ExternalColumns[ItemType]"
+                      lineageId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].Columns[ItemType]" />
+                    <inputColumn
+                      refId="Package\FilteredBadGeometries\dwFilteredGeometry.Inputs[OLE DB Destination Input].Columns[DateCreated]"
+                      cachedDataType="dbTimeStamp2"
+                      cachedName="DateCreated"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\FilteredBadGeometries\dwFilteredGeometry.Inputs[OLE DB Destination Input].ExternalColumns[DateCreated]"
+                      lineageId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].Columns[DateCreated]" />
+                    <inputColumn
+                      refId="Package\FilteredBadGeometries\dwFilteredGeometry.Inputs[OLE DB Destination Input].Columns[OgrGeometry]"
+                      cachedDataType="image"
+                      cachedName="OgrGeometry"
+                      externalMetadataColumnId="Package\FilteredBadGeometries\dwFilteredGeometry.Inputs[OLE DB Destination Input].ExternalColumns[OgrGeometry]"
+                      lineageId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].Columns[OgrGeometry]" />
+                    <inputColumn
+                      refId="Package\FilteredBadGeometries\dwFilteredGeometry.Inputs[OLE DB Destination Input].Columns[RandomGeomPoint]"
+                      cachedDataType="image"
+                      cachedName="RandomGeomPoint"
+                      externalMetadataColumnId="Package\FilteredBadGeometries\dwFilteredGeometry.Inputs[OLE DB Destination Input].ExternalColumns[RandomGeomPoint]"
+                      lineageId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].Columns[RandomGeomPoint]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FilteredBadGeometries\dwFilteredGeometry.Inputs[OLE DB Destination Input].ExternalColumns[RAGEOMID]"
+                      dataType="i4"
+                      name="RAGEOMID" />
+                    <externalMetadataColumn
+                      refId="Package\FilteredBadGeometries\dwFilteredGeometry.Inputs[OLE DB Destination Input].ExternalColumns[GeometryID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="GeometryID" />
+                    <externalMetadataColumn
+                      refId="Package\FilteredBadGeometries\dwFilteredGeometry.Inputs[OLE DB Destination Input].ExternalColumns[ItemID]"
+                      dataType="i4"
+                      name="ItemID" />
+                    <externalMetadataColumn
+                      refId="Package\FilteredBadGeometries\dwFilteredGeometry.Inputs[OLE DB Destination Input].ExternalColumns[GeogWKT]"
+                      codePage="1252"
+                      dataType="text"
+                      name="GeogWKT" />
+                    <externalMetadataColumn
+                      refId="Package\FilteredBadGeometries\dwFilteredGeometry.Inputs[OLE DB Destination Input].ExternalColumns[FeatureTypeConstant]"
+                      dataType="i4"
+                      name="FeatureTypeConstant" />
+                    <externalMetadataColumn
+                      refId="Package\FilteredBadGeometries\dwFilteredGeometry.Inputs[OLE DB Destination Input].ExternalColumns[ItemType]"
+                      dataType="wstr"
+                      length="50"
+                      name="ItemType" />
+                    <externalMetadataColumn
+                      refId="Package\FilteredBadGeometries\dwFilteredGeometry.Inputs[OLE DB Destination Input].ExternalColumns[DateCreated]"
+                      dataType="dbTimeStamp2"
+                      name="DateCreated"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\FilteredBadGeometries\dwFilteredGeometry.Inputs[OLE DB Destination Input].ExternalColumns[OgrGeometry]"
+                      dataType="image"
+                      name="OgrGeometry" />
+                    <externalMetadataColumn
+                      refId="Package\FilteredBadGeometries\dwFilteredGeometry.Inputs[OLE DB Destination Input].ExternalColumns[RandomGeomPoint]"
+                      dataType="image"
+                      name="RandomGeomPoint" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FilteredBadGeometries\dwFilteredGeometry.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\FilteredBadGeometries\dwFilteredGeometry.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FilteredBadGeometries\dwFilteredGeometry.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FilteredBadGeometries\dwFilteredGeometry.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FilteredBadGeometries\dwFilteredGeometry.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FilteredBadGeometries\dwFilteredGeometry.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FilteredBadGeometries\sumFilteredGeometry"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="sumFilteredGeometry"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[vcd_vw_GeometryInspectFromIconyx_BadFilteredOut]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FilteredBadGeometries\sumFilteredGeometry.Connections[OleDbConnection]"
+                  connectionManagerID="{D7C77584-B834-4CA6-9BB0-E58421899C9F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[dehsvdb01.Summit_Production_Report]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].Columns[RAGEOMID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].ExternalColumns[RAGEOMID]"
+                      lineageId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].Columns[RAGEOMID]"
+                      name="RAGEOMID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].Columns[GeometryID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].ExternalColumns[GeometryID]"
+                      length="50"
+                      lineageId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].Columns[GeometryID]"
+                      name="GeometryID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].Columns[ItemID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].ExternalColumns[ItemID]"
+                      lineageId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].Columns[ItemID]"
+                      name="ItemID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].Columns[GeogWKT]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].ExternalColumns[GeogWKT]"
+                      lineageId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].Columns[GeogWKT]"
+                      name="GeogWKT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].Columns[FeatureTypeConstant]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].ExternalColumns[FeatureTypeConstant]"
+                      lineageId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].Columns[FeatureTypeConstant]"
+                      name="FeatureTypeConstant"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].Columns[ItemType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].ExternalColumns[ItemType]"
+                      length="50"
+                      lineageId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].Columns[ItemType]"
+                      name="ItemType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].Columns[DateCreated]"
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
+                      lineageId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].Columns[DateCreated]"
+                      name="DateCreated"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].Columns[OgrGeometry]"
+                      dataType="image"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].ExternalColumns[OgrGeometry]"
+                      lineageId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].Columns[OgrGeometry]"
+                      name="OgrGeometry"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].Columns[RandomGeomPoint]"
+                      dataType="image"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].ExternalColumns[RandomGeomPoint]"
+                      lineageId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].Columns[RandomGeomPoint]"
+                      name="RandomGeomPoint"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].ExternalColumns[RAGEOMID]"
+                      dataType="i4"
+                      name="RAGEOMID" />
+                    <externalMetadataColumn
+                      refId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].ExternalColumns[GeometryID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="GeometryID" />
+                    <externalMetadataColumn
+                      refId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].ExternalColumns[ItemID]"
+                      dataType="i4"
+                      name="ItemID" />
+                    <externalMetadataColumn
+                      refId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].ExternalColumns[GeogWKT]"
+                      codePage="1252"
+                      dataType="text"
+                      name="GeogWKT" />
+                    <externalMetadataColumn
+                      refId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].ExternalColumns[FeatureTypeConstant]"
+                      dataType="i4"
+                      name="FeatureTypeConstant" />
+                    <externalMetadataColumn
+                      refId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].ExternalColumns[ItemType]"
+                      dataType="wstr"
+                      length="50"
+                      name="ItemType" />
+                    <externalMetadataColumn
+                      refId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
+                      dataType="dbTimeStamp2"
+                      name="DateCreated"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].ExternalColumns[OgrGeometry]"
+                      dataType="image"
+                      name="OgrGeometry" />
+                    <externalMetadataColumn
+                      refId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output].ExternalColumns[RandomGeomPoint]"
+                      dataType="image"
+                      name="RandomGeomPoint" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Error Output].Columns[RAGEOMID]"
+                      dataType="i4"
+                      lineageId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Error Output].Columns[RAGEOMID]"
+                      name="RAGEOMID" />
+                    <outputColumn
+                      refId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Error Output].Columns[GeometryID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Error Output].Columns[GeometryID]"
+                      name="GeometryID" />
+                    <outputColumn
+                      refId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Error Output].Columns[ItemID]"
+                      dataType="i4"
+                      lineageId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Error Output].Columns[ItemID]"
+                      name="ItemID" />
+                    <outputColumn
+                      refId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Error Output].Columns[GeogWKT]"
+                      codePage="1252"
+                      dataType="text"
+                      lineageId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Error Output].Columns[GeogWKT]"
+                      name="GeogWKT" />
+                    <outputColumn
+                      refId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Error Output].Columns[FeatureTypeConstant]"
+                      dataType="i4"
+                      lineageId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Error Output].Columns[FeatureTypeConstant]"
+                      name="FeatureTypeConstant" />
+                    <outputColumn
+                      refId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Error Output].Columns[ItemType]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Error Output].Columns[ItemType]"
+                      name="ItemType" />
+                    <outputColumn
+                      refId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Error Output].Columns[DateCreated]"
+                      dataType="dbTimeStamp2"
+                      lineageId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Error Output].Columns[DateCreated]"
+                      name="DateCreated"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Error Output].Columns[OgrGeometry]"
+                      dataType="image"
+                      lineageId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Error Output].Columns[OgrGeometry]"
+                      name="OgrGeometry" />
+                    <outputColumn
+                      refId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Error Output].Columns[RandomGeomPoint]"
+                      dataType="image"
+                      lineageId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Error Output].Columns[RandomGeomPoint]"
+                      name="RandomGeomPoint" />
+                    <outputColumn
+                      refId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\FilteredBadGeometries.Paths[OLE DB Source Output]"
+              endId="Package\FilteredBadGeometries\dwFilteredGeometry.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\FilteredBadGeometries\sumFilteredGeometry.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TruncateGeomTables"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{31219E51-BFA8-4B85-8D83-F82567EC9331}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TruncateGeomTables"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{964D0A0C-2F9F-41D7-9A2F-6327305B1CD2}"
+          SQLTask:SqlStatementSource="EXEC TruncateCoreGeomTables" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{C9698B3E-6BAB-49BF-B44C-C4C0038CB2E4}"
+      DTS:From="Package\TruncateGeomTables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\CoreGeometries" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\CoreGeometries"
+          TopLeft="446.5,153.5" />
+        <NodeLayout
+          Size="184.8,41.6"
+          Id="Package\FilteredBadGeometries"
+          TopLeft="285.142861998811,306.494121945523" />
+        <NodeLayout
+          Size="179.2,41.6"
+          Id="Package\TruncateGeomTables"
+          TopLeft="190,117" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="369.2,137.8">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="77.2999999999999,36.5"
+              Start="0,0"
+              End="69.7999999999999,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="34.6499999999999,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="34.6499999999999,0"
+                    Point2="38.6499999999999,0"
+                    Point3="38.6499999999999,4" />
+                  <mssgle:LineSegment
+                    End="38.6499999999999,32.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="38.6499999999999,32.5"
+                    Point2="38.6499999999999,36.5"
+                    Point3="42.6499999999999,36.5" />
+                  <mssgle:LineSegment
+                    End="69.7999999999999,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\CoreGeometries">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="255,42"
+          Id="Package\CoreGeometries\summMostRecentUpdatedGeometries"
+          TopLeft="299,197" />
+        <NodeLayout
+          Size="240,42"
+          Id="Package\CoreGeometries\dwMostRecentUpdatedGeometries"
+          TopLeft="657,341" />
+        <EdgeLayout
+          Id="Package\CoreGeometries.Paths[OLE DB Source Output]"
+          TopLeft="426.5,239">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="350.5,102"
+              Start="0,0"
+              End="350.5,94.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,47"
+                    Point2="0,51"
+                    Point3="4,51" />
+                  <mssgle:LineSegment
+                    End="346.5,51" />
+                  <mssgle:CubicBezierSegment
+                    Point1="346.5,51"
+                    Point2="350.5,51"
+                    Point3="350.5,55" />
+                  <mssgle:LineSegment
+                    End="350.5,94.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CoreGeometries\dwMostRecentUpdatedGeometries">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CoreGeometries\summMostRecentUpdatedGeometries">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\FilteredBadGeometries">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="179.2,41.6"
+          Id="Package\FilteredBadGeometries\sumFilteredGeometry"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="172.8,41.6"
+          Id="Package\FilteredBadGeometries\dwFilteredGeometry"
+          TopLeft="591.2,335.2" />
+        <EdgeLayout
+          Id="Package\FilteredBadGeometries.Paths[OLE DB Source Output]"
+          TopLeft="95.1,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="582.5,288.1"
+              Start="0,0"
+              End="582.5,280.6">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,140.05" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,140.05"
+                    Point2="0,144.05"
+                    Point3="4,144.05" />
+                  <mssgle:LineSegment
+                    End="578.5,144.05" />
+                  <mssgle:CubicBezierSegment
+                    Point1="578.5,144.05"
+                    Point2="582.5,144.05"
+                    Point3="582.5,148.05" />
+                  <mssgle:LineSegment
+                    End="582.5,280.6" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\FilteredBadGeometries\dwFilteredGeometry">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FilteredBadGeometries\sumFilteredGeometry">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

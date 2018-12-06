@@ -12,8 +12,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="CoreViews"
   DTS:PackageType="5"
-  DTS:VersionBuild="203"
-  DTS:VersionGUID="{9EB3722D-17EB-4C2B-A06D-5AD816BF0509}">
+  DTS:VersionBuild="204"
+  DTS:VersionGUID="{2443F370-DA80-406E-8032-F0F0D675913C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -34097,6 +34097,844 @@ FROM            Asset</property>
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
+          DTS:refId="Package\Linked Activities\Pesticide Treatment"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{5FB7CDA1-D4E7-49EA-AE4D-9C114F45C44B}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Pesticide Treatment"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="DWPesticideTreatment"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[factPesticideTreatment]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Connections[OleDbConnection]"
+                      connectionManagerID="{964D0A0C-2F9F-41D7-9A2F-6327305B1CD2}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[cepsvdb02.DW_Summit]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].Columns[ActivityID]"
+                          cachedDataType="i4"
+                          cachedName="ActivityID"
+                          externalMetadataColumnId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].ExternalColumns[ActivityID]"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[ActivityID]" />
+                        <inputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].Columns[GeometryID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="GeometryID"
+                          externalMetadataColumnId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].ExternalColumns[GeometryID]"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[GeometryID]" />
+                        <inputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].Columns[lObsTypeID]"
+                          cachedDataType="i4"
+                          cachedName="lObsTypeID"
+                          externalMetadataColumnId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].ExternalColumns[lObsTypeID]"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[lObsTypeID]" />
+                        <inputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].Columns[ItemID]"
+                          cachedDataType="i4"
+                          cachedName="ItemID"
+                          externalMetadataColumnId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].ExternalColumns[Asset ID]"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[ItemID]" />
+                        <inputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].Columns[ActivityDate]"
+                          cachedDataType="dbTimeStamp2"
+                          cachedName="ActivityDate"
+                          cachedScale="7"
+                          externalMetadataColumnId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].ExternalColumns[Activity Date]"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[ActivityDate]" />
+                        <inputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].Columns[ActualAmount]"
+                          cachedDataType="numeric"
+                          cachedName="ActualAmount"
+                          cachedPrecision="8"
+                          cachedScale="5"
+                          externalMetadataColumnId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].ExternalColumns[Actual Amount]"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[ActualAmount]" />
+                        <inputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].Columns[DispenseUnit]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="600"
+                          cachedName="DispenseUnit"
+                          externalMetadataColumnId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].ExternalColumns[Dispense Unit]"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[DispenseUnit]" />
+                        <inputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].Columns[LaborInMinutes]"
+                          cachedDataType="i4"
+                          cachedName="LaborInMinutes"
+                          externalMetadataColumnId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].ExternalColumns[Labor (in minutes)]"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[LaborInMinutes]" />
+                        <inputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].Columns[PreferedDispenseUnit]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="600"
+                          cachedName="PreferedDispenseUnit"
+                          externalMetadataColumnId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].ExternalColumns[Preferred Dispense Unit]"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[PreferedDispenseUnit]" />
+                        <inputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].Columns[Product]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="600"
+                          cachedName="Product"
+                          externalMetadataColumnId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].ExternalColumns[Product or mixture]"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[Product]" />
+                        <inputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].Columns[RecommendMax]"
+                          cachedDataType="numeric"
+                          cachedName="RecommendMax"
+                          cachedPrecision="8"
+                          cachedScale="5"
+                          externalMetadataColumnId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].ExternalColumns[Recommended Amount (Max)]"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[RecommendMax]" />
+                        <inputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].Columns[RecommendMin]"
+                          cachedDataType="numeric"
+                          cachedName="RecommendMin"
+                          cachedPrecision="8"
+                          cachedScale="5"
+                          externalMetadataColumnId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].ExternalColumns[Recommended Amount (Min)]"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[RecommendMin]" />
+                        <inputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].Columns[RelatedItemID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="600"
+                          cachedName="RelatedItemID"
+                          externalMetadataColumnId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].ExternalColumns[Related Item ID]"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[RelatedItemID]" />
+                        <inputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].Columns[TreatmentArea]"
+                          cachedDataType="numeric"
+                          cachedName="TreatmentArea"
+                          cachedPrecision="8"
+                          cachedScale="5"
+                          externalMetadataColumnId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].ExternalColumns[Treating Area]"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[TreatmentArea]" />
+                        <inputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].Columns[TreatmentAreaUnit]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="600"
+                          cachedName="TreatmentAreaUnit"
+                          externalMetadataColumnId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].ExternalColumns[Treating Area Unit]"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[TreatmentAreaUnit]" />
+                        <inputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].Columns[TreatmentComplete]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="3"
+                          cachedName="TreatmentComplete"
+                          externalMetadataColumnId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].ExternalColumns[Treatment Complete?]"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[TreatmentComplete]" />
+                        <inputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].Columns[ActivityUser]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="600"
+                          cachedName="ActivityUser"
+                          externalMetadataColumnId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].ExternalColumns[User]"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[ActivityUser]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].ExternalColumns[Asset ID]"
+                          dataType="i4"
+                          name="Asset ID" />
+                        <externalMetadataColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].ExternalColumns[GeometryID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="GeometryID" />
+                        <externalMetadataColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].ExternalColumns[ActivityID]"
+                          dataType="i4"
+                          name="ActivityID" />
+                        <externalMetadataColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].ExternalColumns[lObsTypeID]"
+                          dataType="i4"
+                          name="lObsTypeID" />
+                        <externalMetadataColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].ExternalColumns[Activity Date]"
+                          codePage="1252"
+                          dataType="str"
+                          length="600"
+                          name="Activity Date" />
+                        <externalMetadataColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].ExternalColumns[Actual Amount]"
+                          codePage="1252"
+                          dataType="str"
+                          length="600"
+                          name="Actual Amount" />
+                        <externalMetadataColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].ExternalColumns[Dispense Unit]"
+                          codePage="1252"
+                          dataType="str"
+                          length="600"
+                          name="Dispense Unit" />
+                        <externalMetadataColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].ExternalColumns[Labor (in minutes)]"
+                          codePage="1252"
+                          dataType="str"
+                          length="600"
+                          name="Labor (in minutes)" />
+                        <externalMetadataColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].ExternalColumns[Preferred Dispense Unit]"
+                          codePage="1252"
+                          dataType="str"
+                          length="600"
+                          name="Preferred Dispense Unit" />
+                        <externalMetadataColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].ExternalColumns[Product or mixture]"
+                          codePage="1252"
+                          dataType="str"
+                          length="600"
+                          name="Product or mixture" />
+                        <externalMetadataColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].ExternalColumns[Recommended Amount (Max)]"
+                          codePage="1252"
+                          dataType="str"
+                          length="600"
+                          name="Recommended Amount (Max)" />
+                        <externalMetadataColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].ExternalColumns[Recommended Amount (Min)]"
+                          codePage="1252"
+                          dataType="str"
+                          length="600"
+                          name="Recommended Amount (Min)" />
+                        <externalMetadataColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].ExternalColumns[Related Item ID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="600"
+                          name="Related Item ID" />
+                        <externalMetadataColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].ExternalColumns[Treating Area]"
+                          codePage="1252"
+                          dataType="str"
+                          length="600"
+                          name="Treating Area" />
+                        <externalMetadataColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].ExternalColumns[Treating Area Unit]"
+                          codePage="1252"
+                          dataType="str"
+                          length="600"
+                          name="Treating Area Unit" />
+                        <externalMetadataColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].ExternalColumns[Treatment Complete?]"
+                          codePage="1252"
+                          dataType="str"
+                          length="600"
+                          name="Treatment Complete?" />
+                        <externalMetadataColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].ExternalColumns[User]"
+                          codePage="1252"
+                          dataType="str"
+                          length="600"
+                          name="User" />
+                        <externalMetadataColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].ExternalColumns[Copy of Labor (in minutes)]"
+                          dataType="numeric"
+                          name="Copy of Labor (in minutes)"
+                          precision="18" />
+                        <externalMetadataColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input].ExternalColumns[Copy of Related Item ID]"
+                          dataType="numeric"
+                          name="Copy of Related Item ID"
+                          precision="18" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="SummPesticideTreatment"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT pt.[Asset ID] AS ItemID, pt.ActivityID, pt.GeometryID, pt.lObsTypeID, CAST(pt.[Activity Date] AS DATETIME2(7)) AS ActivityDate, pt.[User] ActivityUser, pt.[Related Item ID] AS RelatedItemID
+,TRY_PARSE(pt.[Labor (in minutes)] AS INT) LaborInMinutes
+,pt.[Product or mixture] Product, TRY_PARSE(pt.[Actual Amount] AS NUMERIC(8,5)) AS ActualAmount, pt.[Dispense Unit] DispenseUnit
+,pt.[Preferred Dispense Unit] PreferedDispenseUnit
+,TRY_PARSE(pt.[Treating Area] AS NUMERIC(8,5)) TreatmentArea, pt.[Treating Area Unit] TreatmentAreaUnit
+,TRY_PARSE(pt.[Recommended Amount (Min)] AS NUMERIC(8,5))  RecommendMin, TRY_PARSE(pt.[Recommended Amount (Max)] AS NUMERIC(8,5)) RecommendMax
+,TRY_CAST(pt.[Treatment Complete?] AS VARCHAR(3)) AS TreatmentComplete
+
+FROM [21_VCD - Pesticide Treatment] pt</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Connections[OleDbConnection]"
+                      connectionManagerID="{D7C77584-B834-4CA6-9BB0-E58421899C9F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[dehsvdb01.Summit_Production_Report]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[ItemID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].ExternalColumns[ItemID]"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[ItemID]"
+                          name="ItemID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[ActivityID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].ExternalColumns[ActivityID]"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[ActivityID]"
+                          name="ActivityID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[GeometryID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].ExternalColumns[GeometryID]"
+                          length="50"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[GeometryID]"
+                          name="GeometryID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[lObsTypeID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].ExternalColumns[lObsTypeID]"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[lObsTypeID]"
+                          name="lObsTypeID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[ActivityDate]"
+                          dataType="dbTimeStamp2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].ExternalColumns[ActivityDate]"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[ActivityDate]"
+                          name="ActivityDate"
+                          scale="7"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[ActivityUser]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].ExternalColumns[ActivityUser]"
+                          length="600"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[ActivityUser]"
+                          name="ActivityUser"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[RelatedItemID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].ExternalColumns[RelatedItemID]"
+                          length="600"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[RelatedItemID]"
+                          name="RelatedItemID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[LaborInMinutes]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].ExternalColumns[LaborInMinutes]"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[LaborInMinutes]"
+                          name="LaborInMinutes"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[Product]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].ExternalColumns[Product]"
+                          length="600"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[Product]"
+                          name="Product"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[ActualAmount]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].ExternalColumns[ActualAmount]"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[ActualAmount]"
+                          name="ActualAmount"
+                          precision="8"
+                          scale="5"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[DispenseUnit]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].ExternalColumns[DispenseUnit]"
+                          length="600"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[DispenseUnit]"
+                          name="DispenseUnit"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[PreferedDispenseUnit]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].ExternalColumns[PreferedDispenseUnit]"
+                          length="600"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[PreferedDispenseUnit]"
+                          name="PreferedDispenseUnit"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[TreatmentArea]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].ExternalColumns[TreatmentArea]"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[TreatmentArea]"
+                          name="TreatmentArea"
+                          precision="8"
+                          scale="5"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[TreatmentAreaUnit]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].ExternalColumns[TreatmentAreaUnit]"
+                          length="600"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[TreatmentAreaUnit]"
+                          name="TreatmentAreaUnit"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[RecommendMin]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].ExternalColumns[RecommendMin]"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[RecommendMin]"
+                          name="RecommendMin"
+                          precision="8"
+                          scale="5"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[RecommendMax]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].ExternalColumns[RecommendMax]"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[RecommendMax]"
+                          name="RecommendMax"
+                          precision="8"
+                          scale="5"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[TreatmentComplete]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].ExternalColumns[TreatmentComplete]"
+                          length="3"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].Columns[TreatmentComplete]"
+                          name="TreatmentComplete"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].ExternalColumns[ItemID]"
+                          dataType="i4"
+                          name="ItemID" />
+                        <externalMetadataColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].ExternalColumns[ActivityID]"
+                          dataType="i4"
+                          name="ActivityID" />
+                        <externalMetadataColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].ExternalColumns[GeometryID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="GeometryID" />
+                        <externalMetadataColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].ExternalColumns[lObsTypeID]"
+                          dataType="i4"
+                          name="lObsTypeID" />
+                        <externalMetadataColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].ExternalColumns[ActivityDate]"
+                          dataType="dbTimeStamp2"
+                          name="ActivityDate"
+                          scale="7" />
+                        <externalMetadataColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].ExternalColumns[ActivityUser]"
+                          codePage="1252"
+                          dataType="str"
+                          length="600"
+                          name="ActivityUser" />
+                        <externalMetadataColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].ExternalColumns[RelatedItemID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="600"
+                          name="RelatedItemID" />
+                        <externalMetadataColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].ExternalColumns[LaborInMinutes]"
+                          dataType="i4"
+                          name="LaborInMinutes" />
+                        <externalMetadataColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].ExternalColumns[Product]"
+                          codePage="1252"
+                          dataType="str"
+                          length="600"
+                          name="Product" />
+                        <externalMetadataColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].ExternalColumns[ActualAmount]"
+                          dataType="numeric"
+                          name="ActualAmount"
+                          precision="8"
+                          scale="5" />
+                        <externalMetadataColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].ExternalColumns[DispenseUnit]"
+                          codePage="1252"
+                          dataType="str"
+                          length="600"
+                          name="DispenseUnit" />
+                        <externalMetadataColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].ExternalColumns[PreferedDispenseUnit]"
+                          codePage="1252"
+                          dataType="str"
+                          length="600"
+                          name="PreferedDispenseUnit" />
+                        <externalMetadataColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].ExternalColumns[TreatmentArea]"
+                          dataType="numeric"
+                          name="TreatmentArea"
+                          precision="8"
+                          scale="5" />
+                        <externalMetadataColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].ExternalColumns[TreatmentAreaUnit]"
+                          codePage="1252"
+                          dataType="str"
+                          length="600"
+                          name="TreatmentAreaUnit" />
+                        <externalMetadataColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].ExternalColumns[RecommendMin]"
+                          dataType="numeric"
+                          name="RecommendMin"
+                          precision="8"
+                          scale="5" />
+                        <externalMetadataColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].ExternalColumns[RecommendMax]"
+                          dataType="numeric"
+                          name="RecommendMax"
+                          precision="8"
+                          scale="5" />
+                        <externalMetadataColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output].ExternalColumns[TreatmentComplete]"
+                          codePage="1252"
+                          dataType="str"
+                          length="3"
+                          name="TreatmentComplete" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Error Output].Columns[ItemID]"
+                          dataType="i4"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Error Output].Columns[ItemID]"
+                          name="ItemID" />
+                        <outputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Error Output].Columns[ActivityID]"
+                          dataType="i4"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Error Output].Columns[ActivityID]"
+                          name="ActivityID" />
+                        <outputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Error Output].Columns[GeometryID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Error Output].Columns[GeometryID]"
+                          name="GeometryID" />
+                        <outputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Error Output].Columns[lObsTypeID]"
+                          dataType="i4"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Error Output].Columns[lObsTypeID]"
+                          name="lObsTypeID" />
+                        <outputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Error Output].Columns[ActivityDate]"
+                          dataType="dbTimeStamp2"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Error Output].Columns[ActivityDate]"
+                          name="ActivityDate"
+                          scale="7" />
+                        <outputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Error Output].Columns[ActivityUser]"
+                          codePage="1252"
+                          dataType="str"
+                          length="600"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Error Output].Columns[ActivityUser]"
+                          name="ActivityUser" />
+                        <outputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Error Output].Columns[RelatedItemID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="600"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Error Output].Columns[RelatedItemID]"
+                          name="RelatedItemID" />
+                        <outputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Error Output].Columns[LaborInMinutes]"
+                          dataType="i4"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Error Output].Columns[LaborInMinutes]"
+                          name="LaborInMinutes" />
+                        <outputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Error Output].Columns[Product]"
+                          codePage="1252"
+                          dataType="str"
+                          length="600"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Error Output].Columns[Product]"
+                          name="Product" />
+                        <outputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Error Output].Columns[ActualAmount]"
+                          dataType="numeric"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Error Output].Columns[ActualAmount]"
+                          name="ActualAmount"
+                          precision="8"
+                          scale="5" />
+                        <outputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Error Output].Columns[DispenseUnit]"
+                          codePage="1252"
+                          dataType="str"
+                          length="600"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Error Output].Columns[DispenseUnit]"
+                          name="DispenseUnit" />
+                        <outputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Error Output].Columns[PreferedDispenseUnit]"
+                          codePage="1252"
+                          dataType="str"
+                          length="600"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Error Output].Columns[PreferedDispenseUnit]"
+                          name="PreferedDispenseUnit" />
+                        <outputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Error Output].Columns[TreatmentArea]"
+                          dataType="numeric"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Error Output].Columns[TreatmentArea]"
+                          name="TreatmentArea"
+                          precision="8"
+                          scale="5" />
+                        <outputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Error Output].Columns[TreatmentAreaUnit]"
+                          codePage="1252"
+                          dataType="str"
+                          length="600"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Error Output].Columns[TreatmentAreaUnit]"
+                          name="TreatmentAreaUnit" />
+                        <outputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Error Output].Columns[RecommendMin]"
+                          dataType="numeric"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Error Output].Columns[RecommendMin]"
+                          name="RecommendMin"
+                          precision="8"
+                          scale="5" />
+                        <outputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Error Output].Columns[RecommendMax]"
+                          dataType="numeric"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Error Output].Columns[RecommendMax]"
+                          name="RecommendMax"
+                          precision="8"
+                          scale="5" />
+                        <outputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Error Output].Columns[TreatmentComplete]"
+                          codePage="1252"
+                          dataType="str"
+                          length="3"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Error Output].Columns[TreatmentComplete]"
+                          name="TreatmentComplete" />
+                        <outputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Linked Activities\Pesticide Treatment.Paths[OLE DB Source Output]"
+                  endId="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
           DTS:refId="Package\Linked Activities\SentinelChickenMaintenance"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
@@ -47736,7 +48574,7 @@ FROM            Asset</property>
           PanelSize="271,777"
           Size="271,820"
           Id="Package\Item Types"
-          TopLeft="615.555551281682,68.853333950467" />
+          TopLeft="616.555551281682,137.853333950467" />
         <NodeLayout
           Size="137,42"
           Id="Package\Linked Activities\CalSurvTrap"
@@ -47797,6 +48635,10 @@ FROM            Asset</property>
           Size="194,44"
           Id="Package\Linked Activities\Wildfife Inspection"
           TopLeft="17.6666668785942,62.0933321817186" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Linked Activities\Pesticide Treatment"
+          TopLeft="27,405" />
         <ContainerLayout
           HeaderHeight="47"
           IsExpanded="True"
@@ -47848,26 +48690,26 @@ FROM            Asset</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="87.1111061396421,230.046666710748"
+              EndConnector="88.1111061396421,299.046666710748"
               Start="0,0"
-              End="79.6111061396421,230.046666710748">
+              End="80.6111061396421,299.046666710748">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="39.555553069821,0" />
+                    End="40.055553069821,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="39.555553069821,0"
-                    Point2="43.555553069821,0"
-                    Point3="43.555553069821,4" />
+                    Point1="40.055553069821,0"
+                    Point2="44.055553069821,0"
+                    Point3="44.055553069821,4" />
                   <mssgle:LineSegment
-                    End="43.555553069821,226.046666710748" />
+                    End="44.055553069821,295.046666710748" />
                   <mssgle:CubicBezierSegment
-                    Point1="43.555553069821,226.046666710748"
-                    Point2="43.555553069821,230.046666710748"
-                    Point3="47.555553069821,230.046666710748" />
+                    Point1="44.055553069821,295.046666710748"
+                    Point2="44.055553069821,299.046666710748"
+                    Point3="48.055553069821,299.046666710748" />
                   <mssgle:LineSegment
-                    End="79.6111061396421,230.046666710748" />
+                    End="80.6111061396421,299.046666710748" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -47878,30 +48720,30 @@ FROM            Asset</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="886.555551281682,478.853333950467">
+          TopLeft="887.555551281682,547.853333950467">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="135.269837313858,-15.381587226283"
+              EndConnector="134.269837313858,-84.381587226283"
               Start="0,0"
-              End="127.769837313858,-15.381587226283">
+              End="126.769837313858,-84.381587226283">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="63.634918656929,0" />
+                    End="63.134918656929,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="63.634918656929,0"
-                    Point2="67.634918656929,0"
-                    Point3="67.634918656929,-4" />
+                    Point1="63.134918656929,0"
+                    Point2="67.134918656929,0"
+                    Point3="67.134918656929,-4" />
                   <mssgle:LineSegment
-                    End="67.634918656929,-11.381587226283" />
+                    End="67.134918656929,-80.381587226283" />
                   <mssgle:CubicBezierSegment
-                    Point1="67.634918656929,-11.381587226283"
-                    Point2="67.634918656929,-15.381587226283"
-                    Point3="71.634918656929,-15.381587226283" />
+                    Point1="67.134918656929,-80.381587226283"
+                    Point2="67.134918656929,-84.381587226283"
+                    Point3="71.134918656929,-84.381587226283" />
                   <mssgle:LineSegment
-                    End="127.769837313858,-15.381587226283" />
+                    End="126.769837313858,-84.381587226283" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -49946,7 +50788,9 @@ FROM            Asset</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -49980,7 +50824,9 @@ FROM            Asset</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -53073,6 +53919,77 @@ FROM            Asset</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Linked Activities\Wildfife Inspection\dwWildLifeIncidentForm">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Linked Activities\Pesticide Treatment">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="199,42"
+          Id="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment"
+          TopLeft="510,278" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment"
+          TopLeft="935,502" />
+        <EdgeLayout
+          Id="Package\Linked Activities\Pesticide Treatment.Paths[OLE DB Source Output]"
+          TopLeft="609.5,320">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="418.5,182"
+              Start="0,0"
+              End="418.5,174.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,87" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,87"
+                    Point2="0,91"
+                    Point3="4,91" />
+                  <mssgle:LineSegment
+                    End="414.5,91" />
+                  <mssgle:CubicBezierSegment
+                    Point1="414.5,91"
+                    Point2="418.5,91"
+                    Point3="418.5,95" />
+                  <mssgle:LineSegment
+                    End="418.5,174.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Linked Activities\Pesticide Treatment\SummPesticideTreatment">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Linked Activities\Pesticide Treatment\DWPesticideTreatment">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
